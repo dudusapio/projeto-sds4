@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devsuperior.dsvendas.dto.SellerDTO;
-import com.devsuperior.dsvendas.service.SellerService;
-
+import com.devsuperior.dsvendas.services.SellerService;
 
 @RestController
-@RequestMapping(value = "/sellers")
+@RequestMapping(path = "/sellers")
 public class SellerController {
 
 	@Autowired
@@ -23,5 +22,6 @@ public class SellerController {
 	public ResponseEntity<List<SellerDTO>> findAll(){
 		List<SellerDTO> list = service.findAll();
 		return ResponseEntity.ok(list);
+				
 	}
 }

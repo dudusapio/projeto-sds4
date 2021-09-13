@@ -11,26 +11,27 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tb_sales")
+@Table(name = "tb_sales")
 public class Sale {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Integer visited;
-	private Double deals;
+	private Integer deals;
 	private Double amount;
 	private LocalDate date;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "seller_id")
 	private Seller seller;
-	
+
 	public Sale() {
-		
+		super();
 	}
 
-	public Sale(Long id, Integer visited, Double deals, Double amount, LocalDate date, Seller seller) {
+	public Sale(Long id, Integer visited, Integer deals, Double amount, LocalDate date, Seller seller) {
+		super();
 		this.id = id;
 		this.visited = visited;
 		this.deals = deals;
@@ -55,11 +56,11 @@ public class Sale {
 		this.visited = visited;
 	}
 
-	public Double getDeals() {
+	public Integer getDeals() {
 		return deals;
 	}
 
-	public void setDeals(Double deals) {
+	public void setDeals(Integer deals) {
 		this.deals = deals;
 	}
 
@@ -86,4 +87,5 @@ public class Sale {
 	public void setSeller(Seller seller) {
 		this.seller = seller;
 	}
+
 }
